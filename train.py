@@ -17,6 +17,8 @@ import random
 import os
 
 
+
+#torch.use_deterministic_algorithms(False)
 def seed_everything(seed=9527):
     # 固定隨機種子, 藉此讓整體訓練過程可復現
     random.seed(seed)
@@ -26,9 +28,10 @@ def seed_everything(seed=9527):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
-    torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
     torch.use_deterministic_algorithms(True)
+    os.environ['CUBLAS_WORKSPACE_CONFIG'] = ":4096:8"
     os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 
@@ -532,7 +535,7 @@ def main():
         'epochs': 100,
         'val': False,
         'workers': 2,
-        'batch': 32,
+        'batch': 12,
         'seed': seed,
     }
 
