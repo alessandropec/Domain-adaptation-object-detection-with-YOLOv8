@@ -7,6 +7,6 @@ names:
   5: train
   6: motorcycle
   7: bicycle
-path: G:/dataset/ACDC/YOLO
+path: C:/Users/Alessandro Pecora/Desktop/Domain-adaptation-object-detection-with-YOLOv8/dataset/ACDC\YOLO
 train: train\fog\images
 val: val\fog\images

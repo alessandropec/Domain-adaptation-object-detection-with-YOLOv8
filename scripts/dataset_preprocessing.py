@@ -111,8 +111,8 @@ def process_image(p_img, p_target_dir, name_subdir, name_split, lh):
 
 
 if __name__ == '__main__':
-    data_dir = 'G:/dataset/ACDC'
-    target_dir = 'G:/dataset/ACDC/YOLO'
+    data_dir = 'C:/Users/Alessandro Pecora/Desktop/Domain-adaptation-object-detection-with-YOLOv8/dataset/ACDC'
+    target_dir = 'C:/Users/Alessandro Pecora/Desktop/Domain-adaptation-object-detection-with-YOLOv8/dataset/ACDC\YOLO'
 
     gt_path = os.path.join(data_dir, 'gt_detection', 'instancesonly_train_gt_detection.json')
     with open(gt_path, 'r', encoding='utf-8') as f:
