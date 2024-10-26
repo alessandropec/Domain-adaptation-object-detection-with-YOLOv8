@@ -5,6 +5,7 @@ from torchvision.ops import box_convert
 import shutil
 import yaml
 from multiprocessing import Pool
+from tqdm import tqdm
 
 
 class LabelHandler:
@@ -107,12 +108,12 @@ def process_image(p_img, p_target_dir, name_subdir, name_split, lh):
     target_label_path = os.path.join(p_target_label_dir, f'{name_img.replace(".png", ".txt")}')
     with open(target_label_path, 'w', encoding='utf-8') as f:
         for label in target_labels:
-            f.write(f'{int(label[0])} {label[1]} {label[2]} {label[3]} {label[4]}\n')
+            f.write(f'{int(label[0])} {label[1]} {label[2]} {label[3]} {label[4]}/n')
 
 
 if __name__ == '__main__':
-    data_dir = 'C:/Users/Alessandro Pecora/Desktop/Domain-adaptation-object-detection-with-YOLOv8/dataset/ACDC'
-    target_dir = 'C:/Users/Alessandro Pecora/Desktop/Domain-adaptation-object-detection-with-YOLOv8/dataset/ACDC\YOLO'
+    data_dir = 'C:/Users/pecal/OneDrive/Desktop/progetti/cgcv/DIVINE/codice/Domain-adaptation-object-detection-with-YOLOv8/dataset/ACDC'
+    target_dir = 'C:/Users/pecal/OneDrive/Desktop/progetti/cgcv/DIVINE/codice/Domain-adaptation-object-detection-with-YOLOv8/dataset/ACDC/YOLO'
 
     gt_path = os.path.join(data_dir, 'gt_detection', 'instancesonly_train_gt_detection.json')
     with open(gt_path, 'r', encoding='utf-8') as f:
